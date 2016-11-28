@@ -10,7 +10,7 @@
 - Demo can be found at http://codeseven.github.io/toastr/demo.html
 - [Demo using FontAwesome icons with toastr](http://plnkr.co/edit/6W9URNyyp2ItO4aUWzBB?p=preview)
 
-## [CDNjs](https://cdnjs.com/libraries/toastr.js)
+## CDNjs
 Toastr is hosted at CDN JS
 
 #### Debug
@@ -20,23 +20,13 @@ Toastr is hosted at CDN JS
 #### Minified
 - [//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js](//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) 
 - [//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css](//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css)
- 
-## Install
 
-#### [NuGet Gallery](http://nuget.org/packages/toastr)
-```
-Install-Package toastr
-```
+## NuGet Gallery
+http://nuget.org/packages/toastr
 
-#### [Bower](http://bower.io/search/?q=toastr)
-```
-bower install toastr
-```
+## [Bower](http://bower.io/)
+		bower install toastr
 
-#### [npm](https://www.npmjs.com/package/toastr)
-```
-npm install --save toastr
-```
 
 ## Wiki and Change Log
 [Wiki including Change Log](https://github.com/CodeSeven/toastr/wiki)
@@ -53,7 +43,7 @@ The following animations options have been deprecated and should be replaced:
 
 ## Quick Start
 
-### 3 Easy Steps
+###3 Easy Steps
 For other API calls, see the [demo](http://codeseven.github.io/toastr/demo.html).
 
 1. Link to toastr.css `<link href="toastr.css" rel="stylesheet"/>`
@@ -61,116 +51,87 @@ For other API calls, see the [demo](http://codeseven.github.io/toastr/demo.html)
 2. Link to toastr.js `<script src="toastr.js"></script>`
 
 3. use toastr to display a toast for info, success, warning or error
-	```js
-	// Display an info toast with no title
-	toastr.info('Are you the 6 fingered man?')
-	```
+
+		// Display an info toast with no title
+		toastr.info('Are you the 6 fingered man?')
 
 ### Other Options
-```js
-// Display a warning toast, with no title
-toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
+	// Display a warning toast, with no title
+	toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
+	
+	// Display a success toast, with a title
+	toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+	
+	// Display an error toast, with a title
+	toastr.error('I do not think that word means what you think it means.', 'Inconceivable!')
+	
+	// Immediately remove current toasts without using animation
+	toastr.remove()
+	
+	// Remove current toasts using animation
+	toastr.clear()
 
-// Display a success toast, with a title
-toastr.success('Have fun storming the castle!', 'Miracle Max Says')
-
-// Display an error toast, with a title
-toastr.error('I do not think that word means what you think it means.', 'Inconceivable!')
-
-// Immediately remove current toasts without using animation
-toastr.remove()
-
-// Remove current toasts using animation
-toastr.clear()
-
-// Override global options
-toastr.success('We do have the Kapua suite available.', 'Turtle Bay Resort', {timeOut: 5000})
-```
-
-### Escape HTML characters
-In case you want to escape HTML charaters in title and message
-
-	toastr.options.escapeHtml = true;
+	// Override global options
+	toastr.success('We do have the Kapua suite available.', 'Turtle Bay Resort', {timeOut: 5000})
 
 ### Close Button
 Optionally enable a close button
-```js
-toastr.options.closeButton = true;
-````
+
+        toastr.options.closeButton = true;
 
 Optionally override the close button's HTML. 
 
-```js
-toastr.options.closeHtml = '<button><i class="icon-off"></i></button>';
-```
+        toastr.options.closeHtml = '<button><i class="icon-off"></i></button>';
 
 You can also override the CSS/LESS for `#toast-container .toast-close-button`
 
-Optionally override the hide animation when the close button is clicked (falls back to hide configuration).
-```js
-toastr.options.closeMethod = 'fadeOut';
-toastr.options.closeDuration = 300;
-toastr.options.closeEasing = 'swing';
-```
-
 ### Display Sequence
 Show newest toast at bottom (top is default)
-```js
-toastr.options.newestOnTop = false;
-```
+
+	toastr.options.newestOnTop = false;
 
 ### Callbacks
-```js
-// Define a callback for when the toast is shown/hidden
-toastr.options.onShown = function() { console.log('hello'); }
-toastr.options.onHidden = function() { console.log('goodbye'); }
-```
+	// Define a callback for when the toast is shown/hidden
+	toastr.options.onShown = function() { console.log('hello'); }
+	toastr.options.onHidden = function() { console.log('goodbye'); }
 
 ### Animation Options
 Toastr will supply default animations, so you do not have to provide any of these settings. However you have the option to override the animations if you like.
 
 ####Easings
 Optionally override the animation easing to show or hide the toasts. Default is swing. swing and linear are built into jQuery.
-```js
-toastr.options.showEasing = 'swing';
-toastr.options.hideEasing = 'linear';
-toastr.options.closeEasing = 'linear';
-```
+
+	toastr.options.showEasing = 'swing';
+	toastr.options.hideEasing = 'linear';
 
 Using the jQuery Easing plugin (http://www.gsgd.co.uk/sandbox/jquery/easing/)
-```js
-toastr.options.showEasing = 'easeOutBounce';
-toastr.options.hideEasing = 'easeInBack';
-toastr.options.closeEasing = 'easeInBack';
-```
+
+	toastr.options.showEasing = 'easeOutBounce';
+	toastr.options.hideEasing = 'easeInBack';
 
 ####Animation Method
 Use the jQuery show/hide method of your choice. These default to fadeIn/fadeOut. The methods fadeIn/fadeOut, slideDown/slideUp, and show/hide are built into jQuery.
-```js
-toastr.options.showMethod = 'slideDown';
-toastr.options.hideMethod = 'slideUp';
-toastr.options.closeMethod = 'slideUp';
-```
+
+	toastr.options.showMethod = 'slideDown'; 
+	toastr.options.hideMethod = 'slideUp'; 
 	
 ###Prevent Duplicates
 Rather than having identical toasts stack, set the preventDuplicates property to true. Duplicates are matched to the previous toast based on their message content.
-```js
-toastr.options.preventDuplicates = true;
-```
+
+       toastr.options.preventDuplicates = true;
+	
 
 ###Timeouts
 Control how toastr interacts with users by setting timeouts appropriately. Timeouts can be disabled by setting them to 0.
-```js
-toastr.options.timeOut = 30; // How long the toast will display without user interaction
-toastr.options.extendedTimeOut = 60; // How long the toast will display after a user hovers over it
-```
+
+	toastr.options.timeOut = 30; // How long the toast will display without user interaction
+	toastr.options.extendedTimeOut = 60; // How long the toast will display after a user hovers over it
 	
 
 ###Progress Bar
 Visually indicate how long before a toast expires.
-```js
-toastr.options.progressBar = true;
-```
+
+    toastr.options.progressBar = true; 
 
 ## Building Toastr
 
